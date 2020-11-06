@@ -13,16 +13,17 @@ public class Supermarket {
         return artikli;
     }
     public Artikl izbaciArtiklSaKodom(String kod){
+        Artikl zaVracanje = null;
         for(int i=0; i < vel; i++){
             int temp = Integer.parseInt(artikli[i].getKod());
             if(temp == Integer.parseInt(kod)){
-                Artikl zaVracanje = artikli[i];
+                zaVracanje = artikli[i];
                 artikli[i] = null;
                 System.arraycopy(artikli, i+1, artikli, i, vel - i);
                 vel = vel - 1;
             }
         }
-        return null;
+        return zaVracanje;
     }
 
     public int getVel() {
